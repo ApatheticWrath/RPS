@@ -8,43 +8,25 @@ public class RPS{
 
 
     public static void main(String[] args){
-
-        int p1 = 0;
-        Scanner input = new Scanner(System.in);
-        String inputs = "";
-
         Random r = new Random();
-        int pc = r.nextInt(3);
-        String pattern = "(rock|Rock|paper|Paper|scissor|Scissor)";
-        Pattern p = Pattern.compile("(rock|Rock|paper|Paper|scissor|Scissor)");
-        System.out.println(inputs);
-        Matcher m = p.matcher(inputs);
-
-        boolean matches = m.matches();
+        int p1 = 0;
+        int pc = r.nextInt(3); 
+        Scanner input = new Scanner(System.in);
+        String inputs = "test";
+        boolean matches;
+        
+              
+       
         do{
             System.out.println("Enter rock, paper, or scissor.");
             inputs = input.nextLine();
-
-
-            System.out.println(""+p.toString());
-            System.out.println(""+m.toString());
-            System.out.println(""+matches);
-            System.out.println("test line");
-
-
-
-
-
-
-
-
-
+            matches = inputValidation(inputs);
 
         }while(!matches);
+        
         p1 = stringConverter(inputs);
         String winner=winnerSelect(p1,pc);
-
-        System.out.println(""+winner);
+        System.out.println(winner);
 
 
 
@@ -54,11 +36,11 @@ public class RPS{
         //2 = scissor
     }
 
-    public static int stringConverter(String inputs){
-        if (inputs.equalsIgnoreCase("rock")){
+    public static int stringConverter(String userinput){
+        if (userinput.equalsIgnoreCase("rock")){
             return 0;
         }
-        else if (inputs.equalsIgnoreCase("paper")){
+        else if (userinput.equalsIgnoreCase("paper")){
             return 1;
         }
         else {
@@ -90,8 +72,20 @@ public class RPS{
         else{
             return  "Tie";
         }
+        }
+        
+        
+    public static Boolean inputValidation(String userinput){
+        Pattern p = Pattern.compile("(rock|Rock|paper|Paper|scissor|Scissor)");
+        Matcher m = p.matcher(userinput);
+        boolean matches = m.matches();
+         
+        
+        return matches;
+        }
+
 
 
     }
-}
+
 
