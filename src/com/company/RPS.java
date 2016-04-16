@@ -29,6 +29,8 @@ public class RPS{
             System.out.println(""+p.toString());
             System.out.println(""+m.toString());
             System.out.println(""+matches);
+            System.out.println("test line");
+
 
 
 
